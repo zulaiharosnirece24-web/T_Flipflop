@@ -1,0 +1,17 @@
+module tff(q,t,clk,rst);
+input clk;
+input rst;
+input t;
+output q;
+reg q;
+always @(posedge clk)
+begin
+if(rst)
+q=1'b0;
+else
+case(t)
+1'b0:q=q;
+1'b1:q=~q;
+endcase
+end
+endmodule
